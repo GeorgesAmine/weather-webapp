@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Weather app</title>
+</head>
+<body>
+<h1>Weather App</h1>    
+<form action="" method="POST">
+    <label for="city">City name:</label><br>
+    <input type="text" id="city" name="city" value=""><br>
+    <input type="submit" value="Get Weather">
+</form>
+{% if response %}
+    <h2>Weather in {{ response.name }} is {{ response.weather[0].main }}</h2>
+    <img src="http://openweathermap.org/img/wn/{{ response.weather[0].icon }}@2x.png" alt="weather icon">
+    <p>The temperature now is: {{ response.main.temp }} °C</p>
+    <p>The minimum temperature is: {{ response.main.temp_min }} °C</p>
+    <p>The max temperature is: {{ response.main.temp_max }} °C</p>
+{% endif %}
+</body>
+</html>
